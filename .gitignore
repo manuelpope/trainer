@@ -1,0 +1,50 @@
+# Archivos y carpetas específicos
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+data/
+
+# Archivos de entorno
+.env
+.env.*
+*.env
+
+# Entornos virtuales (ejemplos para venv y virtualenv)
+venv/
+virtualenv/
+
+# Archivos de registro
+*.log
+logs/
+log.txt
+
+# Archivos de caché y datos generados por diversas herramientas
+.cache/
+*.sqlite
+*.db
+*.json
+*.csv
+*.xml
+*.dat
+
+# Archivos generados por editores de código
+.vscode/
+*.sublime-workspace
+*.pyc
+
+# Carpeta de configuración de Jupyter Notebook
+.ipynb_checkpoints/
+
+# Archivos de registro generados por FastAPI y uvicorn
+*.log
+
+# Archivos compilados y binarios
+*.pyc
+*.so
+*.dll
+
+# Ignorar el archivo .gitignore sí mismo
