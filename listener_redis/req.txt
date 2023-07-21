@@ -1,0 +1,4 @@
+fastapi
+redis
+fastapi [uvicorn]
+uvicorn[standard]
