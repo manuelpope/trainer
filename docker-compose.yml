@@ -1,17 +1,29 @@
 version: '3'
 services:
+  minio:
+    image: minio/minio
+    ports:
+      - '9000:9000'
+    environment:
+      MINIO_ROOT_USER: matb
+      MINIO_ROOT_PASSWORD: 123456789
+    volumes:
+      - /vol:/data
+    command: server /data
   redis:
     image: 'redis:latest'
     ports:
       - '6379:6379'
-
-  publisher_redis:
-    build:
-      context: ./publisher_redis
-    ports:
-      - '8000:8000'
     depends_on:
-      - redis
+      - minio
+
+  # publisher_redis:
+  #   build:
+  #     context: ./publisher_redis
+  #   ports:
+  #     - '8000:8000'
+  #   depends_on:
+  #     - redis
   listener_redis:
     build:
       context: ./listener_redis

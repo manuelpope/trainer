@@ -2,3 +2,5 @@ fastapi
 redis
 fastapi [uvicorn]
 uvicorn[standard]
+minio
+python-multipart
