@@ -2,7 +2,7 @@ import os
 from fastapi import APIRouter, File, UploadFile
 from minio import Minio
 from minio.error import S3Error
-from config import settings
+from publisher_redis.settings import settings
 
 router = APIRouter()
 
@@ -31,6 +31,6 @@ async def upload_csv(file: UploadFile = File(...)):
         return {"error": f"Error al subir el archivo a MinIO: {e}"}
 
     # Llamar a la función para procesar el mensaje (entrenamiento del modelo)
-    train_model(file.filename)
+    print(file.filename)
 
     return {"message": "Archivo subido y procesado correctamente."}

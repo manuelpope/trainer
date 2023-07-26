@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Response
 from minio import Minio
 from minio.error import S3Error
-import settings
+from publisher_redis.settings import settings
 
 router = APIRouter()
 
