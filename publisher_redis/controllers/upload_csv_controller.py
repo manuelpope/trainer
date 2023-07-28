@@ -1,18 +1,11 @@
 import os
 from fastapi import APIRouter, File, UploadFile
-from minio import Minio
 from minio.error import S3Error
-from publisher_redis.settings import settings
+from publisher_redis.buckets.bucket_service import bucket
 
 router = APIRouter()
 
-# Conexión a MinIO
-minio_client = Minio(
-    f"{settings.minio_endpoint}:{settings.minio_port}",
-    access_key=settings.minio_access_key,
-    secret_key=settings.minio_secret_key,
-    secure=settings.minio_secure
-)
+
 
 @router.post("/upload_csv/")
 async def upload_csv(file: UploadFile = File(...)):
@@ -25,8 +18,8 @@ async def upload_csv(file: UploadFile = File(...)):
 
     # Subir el archivo al bucket de MinIO
     try:
-        file_path = os.path.join(settings.bucket_name, file.filename)
-        minio_client.put_object(settings.bucket_name, file.filename, content, len(content))
+        file_path = os.path.join(bucket.get_bucket_name(), file.filename)
+        bucket.get_client().put_object(bucket.get_bucket_name(), file.filename, content, len(content))
     except S3Error as e:
         return {"error": f"Error al subir el archivo a MinIO: {e}"}
 
