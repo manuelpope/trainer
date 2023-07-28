@@ -1,4 +1,7 @@
 from pydantic_settings import BaseSettings
+import os
+
+env_file_path = os.path.join(os.path.dirname(__file__), "../.env")
 
 class Settings(BaseSettings):
     minio_endpoint: str
@@ -13,6 +16,6 @@ class Settings(BaseSettings):
     bucket_name: str
 
     class Config:
-        env_file = ".env"
+        env_file = env_file_path
 
 settings = Settings()

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Response
 from minio.error import S3Error
-from settings import settings
+from configuration.settings import settings
 from buckets.bucket_service import bucket
 router = APIRouter()
 
