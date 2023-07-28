@@ -3,7 +3,7 @@ from fastapi import FastAPI, File, UploadFile, Response
 import logging
 from minio import Minio
 from minio.error import S3Error
-import redis
+import queue_redis
 
 
 app = FastAPI()
@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Conexión a Redis
-redis_client = redis.StrictRedis(host='redis', port=6379, decode_responses=True)
+redis_client = queue_redis.StrictRedis(host='queue_redis', port=6379, decode_responses=True)
 
 # Conexión a MinIO
 minio_client = Minio(
