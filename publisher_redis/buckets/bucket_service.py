@@ -1,5 +1,5 @@
 from minio import Minio
-from publisher_redis.settings import settings
+from settings import settings
 
 
 class MinioClient:

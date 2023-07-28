@@ -1,4 +1,3 @@
-import asyncio
 from fastapi import FastAPI
 import redis
 import json
@@ -11,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Conexión a Redis
-redis_client = redis.StrictRedis(host='queue_redis', port=6379, decode_responses=True)
+redis_client = redis.StrictRedis(host='redis', port=6379, decode_responses=True)
 
 def train_model(dataset_id):
     # Implementa aquí la lógica para el entrenamiento del modelo

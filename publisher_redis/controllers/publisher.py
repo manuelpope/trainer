@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from publisher_redis.queue_redis.redis_client import redis_session
+from queue_redis.redis_client import redis_session
 import json
 
 router = APIRouter()

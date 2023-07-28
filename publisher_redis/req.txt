@@ -4,3 +4,4 @@ fastapi [uvicorn]
 uvicorn[standard]
 minio
 python-multipart
+pydantic-settings

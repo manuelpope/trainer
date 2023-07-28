@@ -1,7 +1,7 @@
 import os
 from fastapi import APIRouter, File, UploadFile
 from minio.error import S3Error
-from publisher_redis.buckets.bucket_service import bucket
+from buckets.bucket_service import bucket
 
 router = APIRouter()
 
